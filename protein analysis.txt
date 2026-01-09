@@ -1,0 +1,22 @@
+from Bio import SeqIO
+from Bio.SeqUtils import molecular_weight, IsoelectricPoint
+from Bio.SeqUtils.ProtParam import ProteinAnalysis
+
+# Read FASTA file
+record = SeqIO.read("data/protein_sequence.fasta", "fasta")
+protein_seq = str(record.seq)
+
+print("Protein ID:", record.id)
+print("Protein Length:", len(protein_seq), "aa")
+
+# Molecular weight
+mw = molecular_weight(protein_seq, seq_type="protein")
+print("Molecular Weight:", round(mw, 2), "Da")
+
+# Isoelectric point
+ip = IsoelectricPoint.IsoelectricPoint(protein_seq)
+print("Isoelectric Point (pI):", round(ip.pi(), 2))
+
+# Hydrophobicity
+analysis = ProteinAnalysis(protein_seq)
+print("Hydrophobicity (GRAVY):", round(analysis.gravy(), 3))

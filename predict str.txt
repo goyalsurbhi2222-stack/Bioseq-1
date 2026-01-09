@@ -1,0 +1,12 @@
+"""
+STRUCTURE PREDICTION WORKFLOW
+
+1. AlphaFold:
+   - Paste protein FASTA into AlphaFold Colab
+   - Download PDB file
+
+2. SWISS-MODEL:
+   - Upload FASTA
+   - Automated homology modeling
+   - Download PDB + quality scores
+"""

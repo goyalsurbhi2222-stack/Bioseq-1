@@ -1,0 +1,12 @@
+from Bio import SeqIO
+
+input_fasta = "data/protein_sequence.fasta"
+output_fasta = "results/blast_input.fasta"
+
+SeqIO.write(
+    SeqIO.parse(input_fasta, "fasta"),
+    output_fasta,
+    "fasta"
+)
+
+print("BLAST-ready file saved in results/")
